@@ -1,5 +1,7 @@
 package View;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -7,12 +9,26 @@ import java.util.List;
  */
 public class Display {
 
-    public void show(String str) {
+    private BufferedReader buffer;
+
+    public Display(BufferedReader buffer){
+        this.buffer = buffer;
+    }
+
+    public void show(Object str) {
         System.out.println(str);
     }
 
-    public void show(List<String> listStr) {
-        for (String str:listStr) System.out.println(str);
+    public void show(List<Object> listStr) {
+        for (Object str:listStr) System.out.println(str);
     }
 
+    public String read(){
+        try {
+            return buffer.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

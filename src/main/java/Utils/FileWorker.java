@@ -24,7 +24,8 @@ public class FileWorker {
             buffer.write( str ) ;
             buffer.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Не найден файл = "+ nameFile+" " + e);
+            return;
         }
     }
 
@@ -33,7 +34,7 @@ public class FileWorker {
         try {
             buffer = new BufferedReader( new FileReader( nameFile ) );
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Не найден файл = "+ nameFile+" " + e);
             return null;
         }
         try {

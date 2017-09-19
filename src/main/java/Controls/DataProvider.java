@@ -4,6 +4,7 @@ import Models.Product;
 import Utils.FileWorker;
 import Utils.JsonController;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,8 @@ public class DataProvider {
     private JsonController jsonController = new JsonController();
 
     public List<Product> getProducts(){
-        List<Product> products = jsonController.jsonToModel(fileWorker.readFile());
+        List<Product> products = null;
+        products = jsonController.jsonToModel(fileWorker.readFile());
         if(products == null){
             products = new ArrayList<Product>();
         }

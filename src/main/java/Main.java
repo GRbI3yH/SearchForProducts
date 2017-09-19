@@ -9,13 +9,15 @@ import java.io.InputStreamReader;
 public class Main {
 
     public static void main(String[] args){
-        Controller commandController = new Controller();
-        String input = null;
+
         BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
+        Controller controller = new Controller(buffer);
+        String input = null;
+
         try {
             while (!(input = buffer.readLine()).equals("close")) {
                 if(input != null){
-                    commandController.executeCommand(input);
+                    controller.executeCommand(input);
                 }
             }
         } catch (IOException e) {

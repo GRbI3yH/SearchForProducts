@@ -11,6 +11,14 @@ public class Product {
     private List<Category> categories;
     private float price;
 
+    public Product(){}
+
+    public Product( String name, List<Category> categories, float price){
+
+        this.name = name;
+        this.categories = categories;
+        this.price = price;
+    }
 
     public List<Category> getCategories() {
         return categories;
@@ -39,5 +47,9 @@ public class Product {
     @Override
     public String toString() {
         return "Имя = "+name+"\tЦена = "+price+"\tКатегории = "+categories;
+    }
+
+    public static String getFieldNames(){
+        return "name |"+" categories | "+" price";
     }
 }

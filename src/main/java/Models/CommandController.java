@@ -20,8 +20,14 @@ public class CommandController {
         this.commandMap = commandMap;
     }
 
-    public void executeCommand(String nameCommand){
-        commandMap.get(nameCommand).execute();
+    public boolean executeCommand(String nameCommand){
+        try {
+            commandMap.get(nameCommand).execute();
+            return true;
+        }catch (NullPointerException e){
+            return false;
+        }
+
     }
 
     public void addCommand(String str, ICommand command) {
