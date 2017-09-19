@@ -1,0 +1,5 @@
+rootProject.name = 'SearchForProducts'
+include 'SFP'
+findProject(':SFP')?.name = 'SearchForProducts'
+rootProject.name = 'SearchForProducts'
+
